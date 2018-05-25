@@ -12,6 +12,7 @@ package grp22_ueb03;
 public class Element {
     private char value;
     private Element next;
+    public char INVALID_VALUE = 0;
     
     public char getValue(){
         return this.value;
@@ -19,24 +20,22 @@ public class Element {
     public void setValue(char value){
         this.value = value;
     }
-    public Element getElement(){
-        return this.next;
-    }
     public void setNext(Element next){
         this.next = next;
     }
     public Element getNext(){
-        return this.next = next;
+        return this.next;
     }
     public Element appendElement(char value) {
         if (this.next == null) {
             Element newElement = new Element();
             newElement.setValue(value);
             this.next = newElement;
+            return newElement;
         } else {
-            this.next = this.next.appendElement(value);
+            return this.next.appendElement(value);
         }
-        return this;
+       
     }
     public Element deleteElement(char value) {
 
@@ -99,8 +98,38 @@ public class Element {
         return this.value + " " + this.next.showElements();
     }
     public char getElementAt(int index){
-        
-        
+       
+        if(index < 0 ){
+            return INVALID_VALUE;
+        }
+        else if(index == 0){
+            return this.value;
+        }
+        else if(this.next != null){
+            return this.next.getElementAt(index-1);
+        }
+        else{
+            return INVALID_VALUE;
+        }
     }
-            
+     public Element insertElementAtFront(char value){ 
+         Element elem = new Element(); 
+         elem.setValue(value);
+         elem.setNext(this);
+         return elem;
+     }  
+     public Element insertElementAt(char value, int index){
+         if(index < 0){
+             return this;
+         }
+         else if(index == 0){
+             return this.appendElement(value);
+         }
+         else if (this.next != null){
+             return this.next.insertElementAt(value, index-1);
+         }
+         else{
+             return this;
+         }
+     }
 }
