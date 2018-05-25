@@ -67,8 +67,9 @@ public class MyList {
             return element.existsElement(value);
         }
     }
-    public String showElements(){
-        return "{" + element.showElements()+ "} ";
+    public String showElements() {
+        if (!isEmpty());
+        return "{" + element.showElements() + "} ";
     }
     public char[] getValues(){
         char [] values = new char[element.size()];
