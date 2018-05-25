@@ -66,17 +66,41 @@ public class Element {
         }
     }
     public int size(){
-        int size = 0;
-        if(this.value == null){
-            size = 0;  
-        }
-        else if(this.next == null){
-            size = 1;
+        int size = 1;
+        if(this.next == null){
+           return size;
         }
         else{
-            this.next = this.next.size();
-            size++;
+            return size = size + this.next.size();
         }
-        return size;
     }
+    public boolean isSorted() {
+        if (this.next == null) {
+            return true;
+        } else if (this.value <= this.next.value) {
+            return this.next.isSorted();
+
+        } else {
+            return false;
+        }
+    }
+
+    public boolean existsElement(char value){
+        if(this.value == value){
+            return true;
+        }
+        else if(this.next != null){
+           return this.next.existsElement(value);
+            
+        }
+        else return false;
+    }
+    public  String showElements(){
+        return this.value + " " + this.next.showElements();
+    }
+    public char getElementAt(int index){
+        
+        
+    }
+            
 }
