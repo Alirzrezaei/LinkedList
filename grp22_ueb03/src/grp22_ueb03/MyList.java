@@ -35,4 +35,44 @@ public class MyList {
                 }
         }
     }
+    public void deleteElement(char value){
+        if(isEmpty()){
+            this.isEmpty();
+        }
+        else{
+            element = element.deleteElement(value);
+        }
+    }
+    public int size(){
+        if(isEmpty()){
+            return 0;
+        }
+        else{
+            return element.size();
+        }
+    }
+    public boolean isSorted(){
+        if(isEmpty()){
+            return true; 
+        }
+        else{
+            return element.isSorted();
+        }
+    }
+    public boolean existsElement(char value){
+        if(isEmpty()){
+            return false;
+        }
+        else{
+            return element.existsElement(value);
+        }
+    }
+    public String showElements(){
+        return "{" + element.showElements()+ "} ";
+    }
+    public char[] getValues(){
+        char [] values = new char[element.size()];
+        return values;
+    }
+    
 }
