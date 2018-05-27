@@ -150,5 +150,137 @@ public class MyListTest {
     
 
 //</editor-fold>
+    
+    
+    ///////////////////////////////////////////////
+    
+    
+     @Test
+    public void testListOfThree() {
+        MyList list = createList('a', 'c', 'e');
+        assertFalse(list.isEmpty());
+        assertTrue(list.isSorted());
+        assertEquals(3, list.size());
+        //assertEquals(8, list.sum());
+        assertTrue(list.existsElement('a'));
+        assertTrue(list.existsElement('c'));
+        assertTrue(list.existsElement('e'));
+        assertFalse(list.existsElement('b'));
+        assertEquals('a', list.getValueAt(0));
+        assertEquals('c', list.getValueAt(1));
+        assertEquals('e', list.getValueAt(2));
+        assertEquals( 0 , list.getValueAt(6));
+        assertEquals( 0, list.getValueAt(-1));
+    }
+
+    @Test
+    public void testListWithDoubleValue() {
+        MyList list = createList('a', 'b', 'b', 'c');
+        assertFalse(list.isEmpty());
+        assertTrue(list.isSorted());
+        assertEquals(4, list.size());
+        //assertEquals(8, list.sum());
+        assertTrue(list.existsElement('a'));
+        assertTrue(list.existsElement('b'));
+        assertTrue(list.existsElement('b'));
+        assertTrue(list.existsElement('c'));
+        assertFalse(list.existsElement('e'));
+        assertEquals('a', list.getValueAt(0));
+        assertEquals('b', list.getValueAt(1));
+        assertEquals('b', list.getValueAt(2));
+        assertEquals('c', list.getValueAt(3));
+        assertEquals(0, list.getValueAt(-1));
+        assertEquals(0, list.getValueAt(6));
+    }
+
+    @Test
+    public void testListEmpty() {
+        MyList list = createList();
+        assertTrue(list.isEmpty());
+        assertEquals(0, list.size());
+        list.insertElementAt('e', 4);
+        assertEquals(0, list.size());
+        list.insertElementAt('e', -1);
+        assertEquals(0, list.size());
+        list.insertElementAt('e', 0);
+        assertEquals(1, list.size());
+        list.deleteElement('e');
+        list.insertElementAtFront('e');
+        assertEquals(1, list.size());
+    }
+
+    @Test
+    public void testListUnsortedAtBegin() {
+        MyList list = createList('b', 'a', 'c');
+        assertFalse(list.isEmpty());
+        assertFalse(list.isSorted());
+        assertEquals(3, list.size());
+        //assertEquals(6, list.sum());
+        assertTrue(list.existsElement('b'));
+        assertTrue(list.existsElement('a'));
+        assertTrue(list.existsElement('c'));
+        assertFalse(list.existsElement('e'));
+        assertEquals('b', list.getValueAt(0));
+        assertEquals('a', list.getValueAt(1));
+        assertEquals('c', list.getValueAt(2));
+        assertEquals(Integer.MAX_VALUE, list.getValueAt(-1));
+        assertEquals(Integer.MAX_VALUE, list.getValueAt(3));
+    }
+
+    @Test
+    public void testInsertSortedIfUnique() {
+        MyList list = createList('b', 'a', 'c');
+        assertFalse(list.existsElement('e'));
+        list.insertSortedIfUnique('A');
+        assertEquals(4, list.size());
+        list.insertSortedIfUnique('b');
+        assertEquals(4, list.size());
+    }
+
+    @Test
+    public void ownTestInsertElementAtList() {
+        MyList list = createList('b', 'a', 'c');
+        list.insertElementAt('A', 0);
+        assertEquals(4, list.size());
+        assertEquals('A', list.getValueAt(0));
+        assertEquals('c', list.getValueAt(3));
+    }
+    
+    @Test
+    public void ownTestInsertElementAtFront() {
+        MyList list = createList('b', 'a', 'c');
+        list.insertElementAtFront('e');
+        assertEquals(4, list.size());
+        assertEquals('e', list.getValueAt(0));
+        assertEquals('c', list.getValueAt(3));
+    }
+    @Test
+    public void ownTestInsertElementAtEmptyList() {
+        MyList list = createList();
+        list.insertElementAt('e', 1);
+        assertEquals(0, list.size());
+        list.insertElementAt('e', 0);
+        assertEquals(1, list.size());
+        assertEquals(10, list.getValueAt(0));
+    }
+    @Test
+    public void ownTestInsertElementAtFront_EmptyList() {
+        MyList list = createList();
+        list.insertElementAtFront('e');
+        assertEquals(1, list.size());
+        assertEquals('e', list.getValueAt(0));
+    }
+
+    @Test
+    public void ownTestInsertElementAt_EmptyList() {
+        MyList list = createList();
+        assertEquals(0, list.size());
+        list.insertElementAt('e', 1); 
+        assertEquals(0, list.size()); 
+        list.insertElementAt('e', 0);
+        assertEquals(1, list.size());
+
+    }
+
    
 }
