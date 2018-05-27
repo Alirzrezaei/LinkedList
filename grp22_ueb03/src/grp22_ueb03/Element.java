@@ -11,9 +11,11 @@ package grp22_ueb03;
  */
 public class Element {
     private char value;
-    private Element next;
+     private Element next;
     public char INVALID_VALUE = 0;
-    
+
+
+   
     public char getValue(){
         return this.value;
     }
@@ -31,10 +33,12 @@ public class Element {
             Element newElement = new Element();
             newElement.setValue(value);
             this.next = newElement;
-            return newElement;
+            
         } else {
-            return this.next.appendElement(value);
+            this.next = this.next.appendElement(value);
         }
+            return this;
+        
        
     }
     public Element deleteElement(char value) {
@@ -52,8 +56,8 @@ public class Element {
         if (this.value > value) {
             Element newElement = new Element();
             newElement.setValue(value);
-            newElement.setNext(next);
-            return this;
+            newElement.setNext(this);
+            return newElement;
         } else if (this.next == null) {
             Element newElement = new Element();
             newElement.setValue(value);
@@ -95,11 +99,14 @@ public class Element {
         else return false;
     }
     public  String showElements(){
+     
         if (this.next == null) {
             return Character.toString(this.getValue());
         } else {
-            return this.value + " " + this.next.showElements();
+
+            return this.getValue() + " " + this.next.showElements();
         }
+    
     }
     public char getElementAt(int index){
        
@@ -123,17 +130,20 @@ public class Element {
          return elem;
      }  
      public Element insertElementAt(char value, int index){
-         if(index < 0){
-             return this;
-         }
-         else if(index == 0){
-             return this.appendElement(value);
-         }
-         else if (this.next != null){
-             return this.next.insertElementAt(value, index-1);
-         }
-         else{
-             return this;
-         }
+          if (index < 0) {
+            return this;
+        } else if (index == 0) {
+            return insertElementAtFront(value);
+        } else if (index == 1 && this.next == null) {
+            Element newElement = new Element();
+            newElement.setValue(value);
+            this.next = newElement;
+            return this;
+        } else if (this.next != null) {
+            this.next = this.next.insertElementAt(value, index - 1);
+            return this;
+        } else {
+            return this;
+        }
      }
 }
