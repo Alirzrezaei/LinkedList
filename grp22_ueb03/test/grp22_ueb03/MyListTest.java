@@ -223,8 +223,8 @@ public class MyListTest {
         assertEquals('b', list.getValueAt(0));
         assertEquals('a', list.getValueAt(1));
         assertEquals('c', list.getValueAt(2));
-        assertEquals(Integer.MAX_VALUE, list.getValueAt(-1));
-        assertEquals(Integer.MAX_VALUE, list.getValueAt(3));
+        assertEquals(0, list.getValueAt(-1));
+        assertEquals(0, list.getValueAt(3));
     }
 
     @Test
@@ -261,7 +261,7 @@ public class MyListTest {
         assertEquals(0, list.size());
         list.insertElementAt('e', 0);
         assertEquals(1, list.size());
-        assertEquals(10, list.getValueAt(0));
+        assertEquals('e', list.getValueAt(0));
     }
     @Test
     public void ownTestInsertElementAtFront_EmptyList() {
