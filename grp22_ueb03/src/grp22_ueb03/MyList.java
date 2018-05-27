@@ -72,8 +72,46 @@ public class MyList {
         return "{" + element.showElements() + "} ";
     }
     public char[] getValues(){
-        char [] values = new char[element.size()];
+        char[] values = new char[size()];
+        if (!isEmpty()) {
+            for (int i = 0; i < values.length; i++) {
+                values[i] = element.getElementAt(i);
+            }
+        }
         return values;
     }
-    
+   public char getValueAt(int index){
+       if(!isEmpty()){
+           return element.INVALID_VALUE;
+       }
+       else{
+           return element.getElementAt(index);
+       }
+   } 
+   public void insertElementAt(char value, int index){
+       if(isEmpty()){
+             element.appendElement(value);
+        }
+       else{
+           element = element.insertElementAt(value, index);
+       }
+   }
+   public void insertElementAtFront(char Value){
+       if(isEmpty()){
+           element.appendElement(Value);
+       }
+       else{
+           element = element.insertElementAtFront(Value);
+       }
+   }
+   public void insertSortedIfUnique(char value){
+       if(isEmpty()){
+           element.appendElement(value);
+       }
+       else{
+           if(!existsElement(value)){
+               element = element.insertElementSorted(value);
+           }
+       }
+   }
 }
