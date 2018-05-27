@@ -95,7 +95,11 @@ public class Element {
         else return false;
     }
     public  String showElements(){
-        return this.value + " " + this.next.showElements();
+        if (this.next == null) {
+            return Character.toString(this.getValue());
+        } else {
+            return this.value + " " + this.next.showElements();
+        }
     }
     public char getElementAt(int index){
        
