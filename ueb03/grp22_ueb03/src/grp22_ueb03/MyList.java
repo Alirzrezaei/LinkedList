@@ -79,7 +79,7 @@ public class MyList {
         return values;
     }
    public char getValueAt(int index){
-       if(!isEmpty()){
+       if(isEmpty()){
            return element.INVALID_VALUE;
        }
        else{
@@ -87,16 +87,19 @@ public class MyList {
        }
    } 
    public void insertElementAt(char value, int index){
-       if(isEmpty()){
-             element.appendElement(value);
+       if(isEmpty() && index == 0){
+             appendElement(value);
         }
+       else if(isEmpty()){
+           element = element;
+       }
        else{
            element = element.insertElementAt(value, index);
        }
    }
    public void insertElementAtFront(char Value){
        if(isEmpty()){
-           element.appendElement(Value);
+           appendElement(Value);
        }
        else{
            element = element.insertElementAtFront(Value);
@@ -104,7 +107,7 @@ public class MyList {
    }
    public void insertSortedIfUnique(char value){
        if(isEmpty()){
-           element.appendElement(value);
+           appendElement(value);
        }
        else{
            if(!existsElement(value)){
