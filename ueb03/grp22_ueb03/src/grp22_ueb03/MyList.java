@@ -30,9 +30,7 @@ public class MyList {
             element.setValue(value);
         }
         else{
-                if (element.existsElement(value)){
                     element = element.insertElementSorted(value);
-                }
         }
     }
     public void deleteElement(char value){
