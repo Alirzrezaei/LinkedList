@@ -117,7 +117,7 @@ public class MyList {
     /**
      * stores all values of the list into an array
      *
-     * @return integer array
+     * @return char array copied from the list
      */
     public char[] getValues(){
         char[] values = new char[size()];
