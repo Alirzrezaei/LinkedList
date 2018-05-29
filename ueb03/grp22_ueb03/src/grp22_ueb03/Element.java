@@ -51,7 +51,7 @@ public class Element {
      /**
      * appends an element in an empty place
      *
-     * @param value of the element in Integer type
+     * @param value of the element in char type
      * @return element
      */
     public Element appendElement(char value) {
@@ -68,7 +68,7 @@ public class Element {
      /**
      * deletes the element with given value
      *
-     * @param value of an elements in Integer type
+     * @param value of an elements in char type
      * @return element
      */
     public Element deleteElement(char value) {
@@ -85,7 +85,7 @@ public class Element {
      /**
      * insert new element between sorted elements
      *
-     * @param value of the element in Integer type
+     * @param value of the element in char type
      * @return element
      */
     public Element insertElementSorted(char value) {
@@ -119,14 +119,14 @@ public class Element {
         }
     }
      /**
-     * return true if the elements are sorted in ascending order.
+     * return true if the elements are sorted in ascending order.(increase)
      *
      * @return boolean (true/false)
      */
     public boolean isSorted() {
         if (this.next == null) {
             return true;
-        } else if (this.value <= this.next.value) {
+        } else if (this.getValue() <= this.next.getValue()) {
             return this.next.isSorted();
 
         } else {
@@ -137,7 +137,7 @@ public class Element {
      * return true if there is an element with given value
      *
      * @param value is the given value
-     * @return boolean (true/false)
+     * @return true if the value is exists
      */
     public boolean existsElement(char value){
         if(this.value == value){
@@ -168,8 +168,8 @@ public class Element {
      /**
      * return value of the elements at specific position with given index
      *
-     * @param index
-     * @return
+     * @param index is the position of the value
+     * @return the value of the given index
      */
     public char getElementAt(int index){
        
@@ -189,8 +189,8 @@ public class Element {
       /**
      * inserts elements with given value at the beginning of the elements
      *
-     * @param value of the elements in Integer type
-     * @return element
+     * @param value of the element in char type
+     * @return element that is added at the front of the list
      */
      public Element insertElementAtFront(char value){ 
          Element elem = new Element(); 
