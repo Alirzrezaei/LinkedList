@@ -161,7 +161,6 @@ public class MyListTest {
         assertFalse(list.isEmpty());
         assertTrue(list.isSorted());
         assertEquals(3, list.size());
-        //assertEquals(8, list.sum());
         assertTrue(list.existsElement('a'));
         assertTrue(list.existsElement('c'));
         assertTrue(list.existsElement('e'));
@@ -179,7 +178,6 @@ public class MyListTest {
         assertFalse(list.isEmpty());
         assertTrue(list.isSorted());
         assertEquals(4, list.size());
-        //assertEquals(8, list.sum());
         assertTrue(list.existsElement('a'));
         assertTrue(list.existsElement('b'));
         assertTrue(list.existsElement('b'));
