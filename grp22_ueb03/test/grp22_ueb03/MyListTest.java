@@ -2,8 +2,8 @@ package grp22_ueb03;
 
 import org.junit.Test;
 import static org.junit.Assert.*;
-import org.junit.FixMethodOrder;
-import org.junit.runners.MethodSorters;
+//import org.junit.FixMethodOrder;
+//import org.junit.runners.MethodSorters;
 
 /**
  * Tests of the methods that have been presented in the lecture.
@@ -215,7 +215,6 @@ public class MyListTest {
         assertFalse(list.isEmpty());
         assertFalse(list.isSorted());
         assertEquals(3, list.size());
-        //assertEquals(6, list.sum());
         assertTrue(list.existsElement('b'));
         assertTrue(list.existsElement('a'));
         assertTrue(list.existsElement('c'));
