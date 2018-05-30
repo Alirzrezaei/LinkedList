@@ -163,7 +163,7 @@ public class MyList {
     /**
      * inserts element at the beginning of the list
      *
-     * @param value of the element
+     * @param value is the given value
      */
     public void insertElementAtFront(char Value) {
         if (isEmpty()) {

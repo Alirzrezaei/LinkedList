@@ -1,15 +1,17 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
 package grp22_ueb03;
 
 import org.junit.Test;
 import static org.junit.Assert.*;
-import org.junit.FixMethodOrder;
-import org.junit.runners.MethodSorters;
 
 /**
- * Tests for the class Element
- * @author GeritKaleck
+ *
+ * @author ite102770
  */
-//@FixMethodOrder(MethodSorters.NAME_ASCENDING)
 public class ElementTest {
 
 /**
@@ -302,3 +304,5 @@ public class ElementTest {
     
 //</editor-fold>
 }
+
+
