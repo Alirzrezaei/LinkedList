@@ -274,7 +274,17 @@ public class MyListTest {
         assertEquals(1, list.size());
 
     }
+    @Test
+    public void ownTestshowElements_isEmpty(){
+        MyList list = createList();
+        assertEquals("{}", list.showElements());  
+    }
 
+     @Test
+    public void ownTestshowElements(){
+        MyList list = createList('b', 'a', 'c');
+        assertEquals("{b a c}", list.showElements());  
+    }
 }
 
 
