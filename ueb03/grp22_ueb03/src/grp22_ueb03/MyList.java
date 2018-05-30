@@ -7,7 +7,7 @@ package grp22_ueb03;
 
 /**
  *
- * @author Alireza
+ * @author kobra
  */
 public class MyList {
 
