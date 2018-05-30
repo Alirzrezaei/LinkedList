@@ -112,8 +112,12 @@ public class MyList {
      */
     //TODO trouble with empty list, write simply test case for it
     public String showElements() {
-        if (!isEmpty());
-        return "{" + element.showElements() + "}";
+        if (!isEmpty()){
+            return "{" + element.showElements() + "}";
+        }
+        else{
+            return "{}";
+        }
     }
 
     /**
