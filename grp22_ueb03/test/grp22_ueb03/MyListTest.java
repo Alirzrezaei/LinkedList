@@ -58,14 +58,14 @@ public class MyListTest {
     @Test
     public void testInsertElement_InEmptyList() {
         MyList list = createList();
-        list.insertElementSorted('a');
+        list.insertElement('a');
         assertEquals(1, list.size());
     }
 
     @Test
     public void testInsertElement_AtFront() {
         MyList list = createList('b', 'c', 'd');
-        list.insertElementSorted('a');
+        list.insertElement('a');
         assertEquals(4, list.size());
         assertArrayEquals(new char[]{'a', 'b', 'c', 'd'}, list.getValues());
     }
@@ -73,7 +73,7 @@ public class MyListTest {
     @Test
     public void testInsertElement_InMiddle() {
         MyList list = createList('a', 'c', 'd');
-        list.insertElementSorted('b');
+        list.insertElement('b');
         assertEquals(4, list.size());
         assertArrayEquals(new char[]{'a', 'b', 'c', 'd'}, list.getValues());
     }
@@ -81,7 +81,7 @@ public class MyListTest {
     @Test
     public void testInsertElement_AtEnd() {
         MyList list = createList('a', 'b', 'c');
-        list.insertElementSorted('d');
+        list.insertElement('d');
         assertEquals(4, list.size());
         assertArrayEquals(new char[]{'a', 'b', 'c', 'd'}, list.getValues());
     }
@@ -174,7 +174,6 @@ public class MyListTest {
         assertTrue(list.isSorted());
         assertEquals(4, list.size());
         assertTrue(list.existsElement('a'));
-        assertTrue(list.existsElement('b'));
         assertTrue(list.existsElement('b'));
         assertTrue(list.existsElement('c'));
         assertFalse(list.existsElement('e'));

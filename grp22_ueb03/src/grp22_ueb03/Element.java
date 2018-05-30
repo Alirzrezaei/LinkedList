@@ -14,8 +14,16 @@ public class Element {
 
     private char value;
     private Element next;
-    public char INVALID_VALUE = 0;
+    public static final char INVALID_VALUE = 0;
 
+    public Element() {
+       //default constructor 
+    }
+    
+    public Element(char value) {
+        this.value = value; 
+    }
+    
     /**
      * gets the value of the element
      *
@@ -94,7 +102,7 @@ public class Element {
      * @param value of the element in char type
      * @return element
      */
-    public Element insertElementSorted(char value) {
+    public Element insertElement(char value) {
         if (this.value > value) {
             Element newElement = new Element();
             newElement.setValue(value);
@@ -106,7 +114,7 @@ public class Element {
             this.next = newElement;
             return this;
         } else {
-            this.next = this.next.insertElementSorted(value);
+            this.next = this.next.insertElement(value);
             return this;
         }
     }
@@ -117,11 +125,10 @@ public class Element {
      * @return size of the total elements in Integer type
      */
     public int size() {
-        int size = 1;
         if (this.next == null) {
-            return size;
+            return 1;
         } else {
-            return size = size + this.next.size();
+            return 1 + this.next.size();
         }
     }
 
@@ -135,7 +142,6 @@ public class Element {
             return true;
         } else if (this.getValue() <= this.next.getValue()) {
             return this.next.isSorted();
-
         } else {
             return false;
         }
@@ -167,7 +173,7 @@ public class Element {
     public String showElements() {
 
         if (this.next == null) {
-            return Character.toString(this.getValue());
+            return "" + this.getValue();
         } else {
 
             return this.getValue() + " " + this.next.showElements();
@@ -182,12 +188,9 @@ public class Element {
      * @return the value of the given index
      */
     public char getElementAt(int index) {
-
-        if (index < 0) {
-            return INVALID_VALUE;
-        } else if (index == 0) {
+        if (index == 0) {
             return this.value;
-        } else if (this.next != null) {
+        } else if (index > 0 && this.next != null) {
             return this.next.getElementAt(index - 1);
         } else {
             return INVALID_VALUE;
@@ -215,16 +218,14 @@ public class Element {
      * @return element containing the value
      */
     public Element insertElementAt(char value, int index) {
-        if (index < 0) {
-            return this;
-        } else if (index == 0) {
+        if (index == 0) {
             return insertElementAtFront(value);
         } else if (index == 1 && this.next == null) {
             Element newElement = new Element();
             newElement.setValue(value);
             this.next = newElement;
             return this;
-        } else if (this.next != null) {
+        } else if (index > 0 && this.next != null) {
             this.next = this.next.insertElementAt(value, index - 1);
             return this;
         } else {

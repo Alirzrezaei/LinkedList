@@ -27,8 +27,7 @@ public class ElementTest {
             return null;
         }
         // create a new element
-        Element el = new Element();
-        el.setValue(value[0]);
+        Element el = new Element(value[0]);
         Element firstEl = el; // remember first element
         
         // create more elements
@@ -70,7 +69,7 @@ public class ElementTest {
     @Test
     public void testInsertElement_AtFront() {
         Element el = createElements('b', 'd');
-        Element result = el.insertElementSorted('a');
+        Element result = el.insertElement('a');
         assertEquals('a', result.getValue());
         assertEquals('b', result.getNext().getValue());
         assertEquals('d', result.getNext().getNext().getValue());
@@ -80,7 +79,7 @@ public class ElementTest {
     @Test
     public void testInsertElement_InMiddle() {
         Element el = createElements('b', 'd');
-        Element result = el.insertElementSorted('c');
+        Element result = el.insertElement('c');
         assertEquals('b', result.getValue());
         assertEquals('c', result.getNext().getValue());
         assertEquals('d', result.getNext().getNext().getValue());
@@ -90,7 +89,7 @@ public class ElementTest {
     @Test
     public void testInsertElement_AtEnd() {
         Element el = createElements('b', 'd');
-        Element result = el.insertElementSorted('e');
+        Element result = el.insertElement('e');
         assertEquals('b', result.getValue());
         assertEquals('d', result.getNext().getValue());
         assertEquals('e', result.getNext().getNext().getValue());

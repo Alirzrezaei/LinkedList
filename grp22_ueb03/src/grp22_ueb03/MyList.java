@@ -42,12 +42,12 @@ public class MyList {
      * @param value for an element in char type
      */
 
-    public void insertElementSorted(char value) {
+    public void insertElement(char value) {
         if (isEmpty()) {
             element = new Element();
             element.setValue(value);
         } else {
-            element = element.insertElementSorted(value);
+            element = element.insertElement(value);
         }
     }
 
@@ -110,9 +110,10 @@ public class MyList {
      *
      * @return String
      */
+    //TODO trouble with empty list, write simply test case for it
     public String showElements() {
         if (!isEmpty());
-        return "{" + element.showElements() + "} ";
+        return "{" + element.showElements() + "}";
     }
 
     /**
@@ -138,7 +139,7 @@ public class MyList {
      */
     public char getValueAt(int index) {
         if (isEmpty()) {
-            return element.INVALID_VALUE;
+            return Element.INVALID_VALUE;
         } else {
             return element.getElementAt(index);
         }
@@ -153,9 +154,7 @@ public class MyList {
     public void insertElementAt(char value, int index) {
         if (isEmpty() && index == 0) {
             appendElement(value);
-        } else if (isEmpty()) {
-            element = element;
-        } else {
+        } else if (!isEmpty()) {
             element = element.insertElementAt(value, index);
         }
     }
@@ -184,7 +183,7 @@ public class MyList {
             appendElement(value);
         } else {
             if (!existsElement(value)) {
-                element = element.insertElementSorted(value);
+                element = element.insertElement(value);
             }
         }
     }
