@@ -1,7 +1,7 @@
 /**
  * this class, Element, is making new element and appending, deleting, inserting
- * elements recursivly. It also check if the element is sorted and return the
- * sum of elements. This class can be used as intance class for Mylist class.
+ * elements recursivly. It also check if the element is sorted returns true
+ * . This class can be used as intance class for Mylist class.
  *
  */
 package grp22_ueb03;
@@ -128,7 +128,7 @@ public class Element {
     /**
      * return true if the elements are sorted in ascending order.(increase)
      *
-     * @return boolean (true/false)
+     * @return boolean (true/false) if its sorted
      */
     public boolean isSorted() {
         if (this.next == null) {
@@ -198,7 +198,7 @@ public class Element {
      * inserts elements with given value at the beginning of the elements
      *
      * @param value of the element in char type
-     * @return element that is added at the front of the list
+     * @return element that is added at front of the list
      */
     public Element insertElementAtFront(char value) {
         Element elem = new Element();
