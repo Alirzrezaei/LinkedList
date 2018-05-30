@@ -10,7 +10,7 @@ import static org.junit.Assert.*;
 
 /**
  *
- * @author Reyhan
+ * @author ite102770
  */
 public class Grp22_ueb03Test {
     
